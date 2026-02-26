@@ -14,10 +14,6 @@ config/name="Paper Cups & Routine Light"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 
-[autoload]
-
-Dialogic="*uid://ds2q0uclmolvu"
-
 [dialogic]
 
 directories/dch_directory={}
