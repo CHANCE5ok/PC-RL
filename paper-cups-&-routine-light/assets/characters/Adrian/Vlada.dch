@@ -10,16 +10,16 @@
 "style": "",
 "suffix": ""
 },
-&"default_portrait": "silent/Zhenya",
+&"default_portrait": "silent/Vlada",
 &"description": "",
-&"display_name": "Евгения",
+&"display_name": "Влада",
 &"mirror": false,
-&"nicknames": ["Zhenya"],
+&"nicknames": [""],
 &"offset": Vector2(0, 0),
 &"portraits": {
-"silent/Zhenya": {
+"silent/Vlada": {
 "export_overrides": {
-"image": "\"res://assets/characters/Eugenia/zhenya.png\""
+"image": "\"res://assets/characters/Vlada/Vlada.png\""
 },
 "mirror": false,
 "offset": Vector2(0, 0),

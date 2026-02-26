@@ -21,10 +21,16 @@ Dialogic="*uid://ds2q0uclmolvu"
 [dialogic]
 
 directories/dch_directory={
-"Eugenie": "res://assets/characters/chr_models/Eugenie.dch"
+"Adrian": "res://assets/characters/Eugenia/Adrian.dch",
+"Elizaveta_student": "res://assets/characters/chr_models/Elizaveta_student.dch",
+"Eugenie": "res://assets/characters/chr_models/Eugenie.dch",
+"Vlada": "res://assets/characters/Adrian/Vlada.dch"
 }
-directories/dtl_directory={}
+directories/dtl_directory={
+"day1": "res://assets/characters/clients/student_girl/day1.dtl"
+}
 layout/style_directory={}
+variables={}
 
 [editor_plugins]
 

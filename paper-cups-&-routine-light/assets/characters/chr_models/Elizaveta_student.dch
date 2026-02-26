@@ -10,16 +10,16 @@
 "style": "",
 "suffix": ""
 },
-&"default_portrait": "silent/Zhenya",
+&"default_portrait": "silent/Studentka",
 &"description": "",
-&"display_name": "Евгения",
+&"display_name": "Лиза",
 &"mirror": false,
-&"nicknames": ["Zhenya"],
+&"nicknames": [""],
 &"offset": Vector2(0, 0),
 &"portraits": {
-"silent/Zhenya": {
+"silent/Studentka": {
 "export_overrides": {
-"image": "\"res://assets/characters/Eugenia/zhenya.png\""
+"image": "\"res://assets/characters/clients/student_girl/studentka.png\""
 },
 "mirror": false,
 "offset": Vector2(0, 0),

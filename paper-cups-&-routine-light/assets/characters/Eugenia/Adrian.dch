@@ -10,16 +10,16 @@
 "style": "",
 "suffix": ""
 },
-&"default_portrait": "silent/Zhenya",
+&"default_portrait": "silent/Adrian",
 &"description": "",
-&"display_name": "Евгения",
+&"display_name": "Адриан",
 &"mirror": false,
-&"nicknames": ["Zhenya"],
+&"nicknames": ["Adrian"],
 &"offset": Vector2(0, 0),
 &"portraits": {
-"silent/Zhenya": {
+"silent/Adrian": {
 "export_overrides": {
-"image": "\"res://assets/characters/Eugenia/zhenya.png\""
+"image": "\"res://assets/characters/Adrian/adrian.png\""
 },
 "mirror": false,
 "offset": Vector2(0, 0),
