@@ -19,6 +19,10 @@ config/icon="res://icon.svg"
 directories/dch_directory={}
 directories/dtl_directory={}
 layout/style_directory={}
+glossary/default_case_sensitive=true
+layout/style_list=[]
+layout/default_style="Default"
+variables={}
 
 [editor_plugins]
 
