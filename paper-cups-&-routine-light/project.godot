@@ -24,6 +24,7 @@ directories/dch_directory={
 "Adrian": "res://assets/characters/Eugenia/Adrian.dch",
 "Elizaveta_student": "res://assets/characters/chr_models/Elizaveta_student.dch",
 "Eugenie": "res://assets/characters/chr_models/Eugenie.dch",
+"Grandfather": "res://assets/characters/chr_models/Grandfather.dch",
 "Vlada": "res://assets/characters/Adrian/Vlada.dch"
 }
 directories/dtl_directory={
@@ -31,6 +32,9 @@ directories/dtl_directory={
 }
 layout/style_directory={}
 variables={}
+glossary/default_case_sensitive=true
+layout/style_list=[]
+layout/default_style="Default"
 
 [editor_plugins]
 
