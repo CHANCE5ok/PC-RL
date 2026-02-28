@@ -17,9 +17,72 @@
 &"nicknames": ["Zhenya"],
 &"offset": Vector2(0, 0),
 &"portraits": {
+"silent/Angry": {
+"export_overrides": {
+"image": "\"res://assets/characters/Eugenia/angry.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": "res://addons/dialogic/Modules/HighlightPortrait/simple_highlight_portrait.tscn"
+},
+"silent/Neutral": {
+"export_overrides": {
+"image": "\"res://assets/characters/Eugenia/neutral.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": "res://addons/dialogic/Modules/HighlightPortrait/simple_highlight_portrait.tscn"
+},
+"silent/Softsmile": {
+"export_overrides": {
+"image": "\"res://assets/characters/Eugenia/softsmile.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": "res://addons/dialogic/Modules/HighlightPortrait/simple_highlight_portrait.tscn"
+},
+"silent/Tiredsoft": {
+"export_overrides": {
+"image": "\"res://assets/characters/Eugenia/tiredsoft.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": "res://addons/dialogic/Modules/HighlightPortrait/simple_highlight_portrait.tscn"
+},
 "silent/Zhenya": {
 "export_overrides": {
 "image": "\"res://assets/characters/Eugenia/zhenya.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": "res://addons/dialogic/Modules/HighlightPortrait/simple_highlight_portrait.tscn"
+},
+"talk/Angrytalk": {
+"export_overrides": {
+"image": "\"res://assets/characters/Eugenia/angrytalk.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": "res://addons/dialogic/Modules/HighlightPortrait/simple_highlight_portrait.tscn"
+},
+"talk/Neutraltalk": {
+"export_overrides": {
+"image": "\"res://assets/characters/Eugenia/neutraltalk.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": "res://addons/dialogic/Modules/HighlightPortrait/simple_highlight_portrait.tscn"
+},
+"talk/Tiredsofttalk": {
+"export_overrides": {
+"image": "\"res://assets/characters/Eugenia/tiredsofttalk.png\""
 },
 "mirror": false,
 "offset": Vector2(0, 0),

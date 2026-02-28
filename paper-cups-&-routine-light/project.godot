@@ -30,11 +30,14 @@ directories/dch_directory={
 directories/dtl_directory={
 "day1": "res://assets/characters/clients/student_girl/day1.dtl"
 }
-layout/style_directory={}
+layout/style_directory={
+"": "res://PCRL_Style.tres",
+"PCRL_Style": "res://PCRL_Style.tres"
+}
 variables={}
 glossary/default_case_sensitive=true
-layout/style_list=[]
-layout/default_style="Default"
+layout/style_list=["res://PCRL_Style.tres"]
+layout/default_style="res://PCRL_Style.tres"
 
 [editor_plugins]
 
