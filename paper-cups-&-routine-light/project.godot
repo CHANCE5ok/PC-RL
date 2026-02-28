@@ -17,6 +17,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 Dialogic="*uid://ds2q0uclmolvu"
+GameState="*uid://bvkid34ujgkxv"
 
 [dialogic]
 
@@ -28,7 +29,8 @@ directories/dch_directory={
 "Vlada": "res://assets/characters/Adrian/Vlada.dch"
 }
 directories/dtl_directory={
-"day1": "res://assets/characters/clients/student_girl/day1.dtl"
+"day1": "res://scenes/day1.dtl",
+"day1_firstclient": "res://scenes/day1_firstclient.dtl"
 }
 layout/style_directory={
 "": "res://PCRL_Style.tres",
@@ -38,6 +40,44 @@ variables={}
 glossary/default_case_sensitive=true
 layout/style_list=["res://PCRL_Style.tres"]
 layout/default_style="res://PCRL_Style.tres"
+extensions_folder="res://addons/dialogic_additions"
+text/letter_speed=0.01
+text/initial_text_reveal_skippable=true
+text/text_reveal_skip_delay=0.1
+text/advance_delay=0.1
+text/autoadvance_per_character_delay=0.1
+text/autoadvance_ignored_characters_enabled=true
+animations/join_default_length=0.5
+animations/join_default_wait=true
+animations/leave_default_length=0.5
+animations/leave_default_wait=true
+animations/cross_fade_default_length=0.5
+choices/autofocus_first=true
+choices/delay=0.2
+choices/reveal_delay=0
+choices/reveal_by_input=false
+save/autosave_delay=60.0
+save/encryption_on_exports_only=true
+text/autopauses={}
+audio/channel_defaults={
+"": {
+"audio_bus": "",
+"fade_length": 0.0,
+"loop": false,
+"volume": 0.0
+},
+"music": {
+"audio_bus": "",
+"fade_length": 0.0,
+"loop": true,
+"volume": 0.0
+}
+}
+
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
 
 [editor_plugins]
 
