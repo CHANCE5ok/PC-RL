@@ -26,6 +26,15 @@
 "scale": 1,
 "scene": "res://addons/dialogic/Modules/HighlightPortrait/simple_highlight_portrait.tscn"
 },
+"silent/Huh": {
+"export_overrides": {
+"image": "\"res://assets/characters/Eugenia/huh.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": "res://addons/dialogic/Modules/HighlightPortrait/simple_highlight_portrait.tscn"
+},
 "silent/Neutral": {
 "export_overrides": {
 "image": "\"res://assets/characters/Eugenia/neutral.png\""
