@@ -1,6 +1,35 @@
 [gd_scene format=3 uid="uid://odem1maea6ob"]
 
-[ext_resource type="Texture2D" uid="uid://drxwf84shxhfq" path="res://assets/characters/clients/grandfather/Post.png" id="1_ac6ef"]
+[node name="MiniGameStub" type="Control" unique_id=967726011]
+layout_mode = 3
+anchors_preset = 0
 
-[node name="Client1Day1" type="Sprite2D" unique_id=1290650034]
-texture = ExtResource("1_ac6ef")
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1858510627]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Panel" type="Panel" parent="." unique_id=1913993083]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="Panel" unique_id=175763769]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="Button (perfect)" type="Button" parent="Panel" unique_id=1481523014]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+
+[node name="Button (good)" type="Button" parent="Panel" unique_id=1937347361]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+
+[node name="Button (bad)" type="Button" parent="Panel" unique_id=1136352069]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
