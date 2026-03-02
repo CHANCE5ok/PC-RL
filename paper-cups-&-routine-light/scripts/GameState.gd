@@ -4,6 +4,7 @@ var fatigue: float = 0.0
 var burnout: float = 0.0
 var reputation: float = 0.0
 
+
 const FATIGUE_MAX := 100.0
 const BURNOUT_MAX := 100.0
 
@@ -68,3 +69,5 @@ func _check_limits():
 		fatigue = FATIGUE_MAX
 	if burnout > BURNOUT_MAX:
 		burnout = BURNOUT_MAX
+		
+		

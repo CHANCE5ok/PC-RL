@@ -1,4 +1,3 @@
-audio music "res://audio/Ready or Not - Police Station Atmosphere - Dark Waters DLC.mp3" [fade="6.0" volume="0.0" loop="true"]
 [background arg="res://assets/backgrounds/bgPW.png" fade="0.0"]
 [wait time="6.0" skippable="true"]
 В груди что-то сжимается, будто на секунду забыла как дышать.
@@ -12,7 +11,7 @@ audio music "res://audio/Ready or Not - Police Station Atmosphere - Dark Waters 
 Наверное...
 Сердце все еще бьется, чуть быстрее, чем нужно.
 Нет.
-Это не тревога
+Это не тревога.
 Просто утро.
 А тело ждет сигнала.
 Дайте хоть звук.
@@ -24,5 +23,38 @@ audio music "res://audio/Ready or Not - Police Station Atmosphere - Dark Waters 
 Остается просто ждать.
 [wait time="5.0" skippable="true"]
 audio -
-join Grandfather right [animation="Slide From Right" length="2.0"]
 Дверь открылась. Внутрь вошел мужчина. В возрасте. На вид ему было около пятидесяти лет, если не все шестьдесят.
+Он осматривал помещение.
+Словно проверял, всё ли стоит на своих местах.
+Grandfather: "Здравствуйте."
+- Доброго Вам утра!
+	do GameState.choice_positive()
+	Eugenie: "Здравствуйте, доброго Вам утра! Что хотите заказать?"
+	Grandfather: "И Вам! Мне пожалуйста один Американо. Средний."
+	Eugenie: "Хорошо!"
+	Стоп.
+	!!!
+	Точно.
+	Нужно спросить его о добавках.
+	Надеюсь не забуду спросить в следующий раз...
+	Eugenie: "Не хотите добавить сиропа? Может сахара?"
+	Grandfather: "А? Аа.. нет, спасибо."
+	Eugenie: "Хорошо, поняла."
+	За работу.
+- Здравствуйте.
+	do GameState.choice_neutral()
+	Eugenie: "Здравствуйте, Ваш заказ?"
+	Grandfather: "Один Американо. Средний. Без сахара."
+	Eugenie: "Ждите, скоро будет."
+	Вот так просто...
+	Тогда за дело.
+- Просто ждать, пока он заговорит.
+	do GameState.choice_rude()
+	[wait time="3.0"]
+	Grandfather: "Средний Американо, без добавок пожалуйста."
+	"Хорошо."
+	С резким разворотом я помчалась за кофемашиной.
+	Я сделала это не нарочно.
+	Но сделала.
+	[wait time="1.0"]
+	Ладно, не сейчас.

@@ -71,7 +71,7 @@ audio/channel_defaults={
 "audio_bus": "",
 "fade_length": 2.0,
 "loop": true,
-"volume": -5.0
+"volume": 0.0
 },
 "music": {
 "audio_bus": "",
