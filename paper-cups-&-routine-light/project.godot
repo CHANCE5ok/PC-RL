@@ -30,7 +30,8 @@ directories/dch_directory={
 }
 directories/dtl_directory={
 "day1": "res://scenes/day1.dtl",
-"day1_firstclient": "res://scenes/day1_firstclient.dtl"
+"day1_client1_intro": "res://scenes/day1_client1_intro.dtl",
+"day1_client1_result": "res://scenes/day1_client1_result.dtl"
 }
 layout/style_directory={
 "": "res://PCRL_Style.tres",
@@ -66,6 +67,12 @@ audio/channel_defaults={
 "loop": false,
 "volume": 0.0
 },
+"bgmusic": {
+"audio_bus": "",
+"fade_length": 2.0,
+"loop": true,
+"volume": -5.0
+},
 "music": {
 "audio_bus": "",
 "fade_length": 0.0,
@@ -73,11 +80,12 @@ audio/channel_defaults={
 "volume": 0.0
 }
 }
+text/input_action="dialogic_default_action"
 
 [display]
 
-window/size/viewport_width=1920
-window/size/viewport_height=1080
+window/size/viewport_width=1280
+window/size/viewport_height=720
 
 [editor_plugins]
 

@@ -1,3 +1,5 @@
+audio music "res://audio/Station - Quiet.mp3" [fade="6.0" volume="-2.0" loop="true"]
+[wait time="3.0" skippable="true"]
 Первый день всегда странный.
 Как будто ты работаешь здесь очень давно, но просто являешься чужим.
 Я не знаю, чего мне ждать
@@ -28,6 +30,7 @@ Vlada: "Ты хоть высыпаешься? Мы открываемся тол
 	Eugenie (silent/Tiredsoft): "...Прямо в час пик?"
 	Vlada: "Нет. Когда я просто хочу выспаться."
 - Нейтральный ответ
+	do GameState.choice_neutral()
 	Eugenie (talk/Neutraltalk): "Мне так легче войти в ритм."
 	Vlada: "Ранняя пташка?"
 	Eugenie (silent/Softsmile): "Даже не знаю."
@@ -41,6 +44,7 @@ Vlada: "Ты хоть высыпаешься? Мы открываемся тол
 	Vlada: "..."
 	Vlada: "Кошмар."
 - Усталый ответ
+	do GameState.choice_honest()
 	Eugenie (talk/Tiredsofttalk): "Честно, не уверена что вообще высыпаюсь."
 	Vlada: "Так и знала."
 	Eugenie (silent/Tiredsoft): "..."
@@ -53,9 +57,9 @@ Vlada: "Ты хоть высыпаешься? Мы открываемся тол
 	Причем здесь капуста.
 	Eugenie (talk/Tiredsofttalk): "Чего?.."
 	Vlada: "Забей."
-join Adrian rightmost [animation="Instant In" length="1.0"]
-update Vlada center [animation="Tada" length="1.0"]
-Adrian: "Доброго вам утра, ребятки!"
+join Adrian rightmost [animation="Fade In Up" length="1.0"]
+update Vlada center [animation="Tada" length="1.5"]
+Adrian: "Доброго утра, ребятки!"
 Vlada: "Адриан."
 Vlada: "Ты мог бы предупреждать."
 Vlada: "И когда ты так незаметно прошмыгнул мимо нас и успел так быстро переодеться?"
@@ -82,10 +86,12 @@ Eugenie: "Да?"
 Vlada: "Раз ты пришла раньше - честь первой смены за тобой."
 Adrian: "Да, покажи мастер-класс."
 - Позитивный ответ
+	do GameState.choice_positive()
 	Eugenie: "Конечно, смотрите внимательно."
 	Adrian: "Хороший настрой!"
 	Vlada: "Ага, до первого авторского заказа как минимум."
 - Нейтральный ответ
+	do GameState.choice_neutral()
 	Eugenie: "Без давления."
 	Adrian: "Ну ладно."
 	Vlada: "Лады."
@@ -94,6 +100,7 @@ Adrian: "Да, покажи мастер-класс."
 	Eugenie: "..."
 	Vlada: "Пошлите уже."
 - Резкий ответ
+	do GameState.choice_rude()
 	Eugenie: "Можно без экзамена?"
 	Vlada: "Да это вроде и не экзамен, просто утро."
 	Adrian: "Но ведь экзамены разве не утром начинаются?"
