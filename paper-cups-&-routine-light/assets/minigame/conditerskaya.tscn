@@ -1,0 +1,84 @@
+[gd_scene format=3 uid="uid://cbvqiyuwepvwy"]
+
+[ext_resource type="Texture2D" uid="uid://bvytp3alr1qn8" path="res://assets/minigame/bgPW.png" id="1_pyvtv"]
+[ext_resource type="Script" uid="uid://dgtspq2qrr58j" path="res://DragItem.gd" id="2_flife"]
+[ext_resource type="Texture2D" uid="uid://bs28jkis1jxuj" path="res://icon.svg" id="3_lomyi"]
+[ext_resource type="Script" uid="uid://dlhg272thtlig" path="res://cashier_slot.gd" id="4_p2b0n"]
+
+[node name="conditerskaya" type="Node2D" unique_id=879308300]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=146466789]
+
+[node name="Background" type="TextureRect" parent="CanvasLayer" unique_id=382817588]
+offset_right = 2336.0
+offset_bottom = 1287.0
+mouse_filter = 2
+texture = ExtResource("1_pyvtv")
+expand_mode = 1
+
+[node name="PastryShelf" type="Control" parent="CanvasLayer" unique_id=1108981289]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 494.0
+offset_top = 487.0
+offset_right = 1160.0
+offset_bottom = 850.0
+
+[node name="Pastry_Croissant" type="Control" parent="CanvasLayer/PastryShelf" unique_id=346330912]
+anchors_preset = 0
+offset_left = -52.0
+offset_top = -52.0
+offset_right = 578.0
+offset_bottom = 40.0
+script = ExtResource("2_flife")
+item_texture = ExtResource("3_lomyi")
+
+[node name="Pastry_Donut" type="Control" parent="CanvasLayer/PastryShelf" unique_id=1478614527]
+anchors_preset = 0
+offset_left = -51.0
+offset_top = 48.0
+offset_right = 565.0
+offset_bottom = 156.0
+script = ExtResource("2_flife")
+item_id = "donut"
+item_texture = ExtResource("3_lomyi")
+
+[node name="Pastry_Cake" type="Control" parent="CanvasLayer/PastryShelf" unique_id=383820509]
+anchors_preset = 0
+offset_left = -20.0
+offset_top = 193.0
+offset_right = 566.0
+offset_bottom = 289.0
+script = ExtResource("2_flife")
+item_id = "cake"
+item_texture = ExtResource("3_lomyi")
+
+[node name="CashierSlot" type="Control" parent="CanvasLayer" unique_id=572837282]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 1278.0
+offset_top = 603.0
+offset_right = 1945.0
+offset_bottom = 1014.0
+script = ExtResource("4_p2b0n")
+
+[node name="Highlight" type="ColorRect" parent="CanvasLayer/CashierSlot" unique_id=1451398865]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+color = Color(1, 0.99215686, 0.98039216, 0)
+
+[node name="ItemPreview" type="TextureRect" parent="CanvasLayer/CashierSlot" unique_id=173044322]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.149
+anchor_top = 0.15300001
+anchor_right = 0.731
+anchor_bottom = 0.79800004
+offset_left = 24.277008
+offset_top = 0.14399719
+offset_right = -156.57703
+offset_bottom = 0.048980713
+mouse_filter = 2

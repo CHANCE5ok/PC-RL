@@ -1,0 +1,81 @@
+[gd_scene format=3 uid="uid://csblgxi8wxhb0"]
+
+[ext_resource type="Texture2D" uid="uid://budr4xlbuseq7" path="res://assets/ui/menu.png" id="1_8u24h"]
+[ext_resource type="Script" uid="uid://d4mvxt2utrfoa" path="res://assets/MainMenu.gd" id="1_cm8wc"]
+
+[node name="menu" type="Node2D" unique_id=278033523]
+
+[node name="MainMenu" type="Control" parent="." unique_id=1250919841]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_cm8wc")
+
+[node name="Background" type="TextureRect" parent="MainMenu" unique_id=1011123920]
+layout_mode = 0
+offset_right = 2330.0
+offset_bottom = 1294.0
+mouse_filter = 2
+texture = ExtResource("1_8u24h")
+expand_mode = 1
+
+[node name="PlayButton" type="Button" parent="MainMenu" unique_id=1817998253]
+layout_mode = 0
+offset_left = 1036.0
+offset_top = 527.0
+offset_right = 1231.0
+offset_bottom = 783.0
+
+[node name="ContinueButton" type="Button" parent="MainMenu" unique_id=2117817041]
+layout_mode = 0
+offset_left = 941.0
+offset_top = 891.0
+offset_right = 1362.0
+offset_bottom = 1015.0
+
+[node name="SettingsButton" type="Button" parent="MainMenu" unique_id=2046673626]
+layout_mode = 0
+offset_left = 964.0
+offset_top = 1017.0
+offset_right = 1366.0
+offset_bottom = 1135.0
+
+[node name="ExitButton" type="Button" parent="MainMenu" unique_id=2055820049]
+layout_mode = 0
+offset_left = 974.0
+offset_top = 1153.0
+offset_right = 1345.0
+offset_bottom = 1299.0
+
+[node name="SettingsWindow" type="Window" parent="MainMenu" unique_id=1716888597]
+oversampling_override = 1.0
+position = Vector2i(700, 200)
+size = Vector2i(1000, 700)
+
+[node name="Panel" type="PanelContainer" parent="MainMenu/SettingsWindow" unique_id=95461046]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SettingsUI" type="VBoxContainer" parent="MainMenu/SettingsWindow/Panel" unique_id=645022339]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="MainMenu/SettingsWindow/Panel/SettingsUI" unique_id=2052690117]
+layout_mode = 2
+
+[node name="Music" type="HBoxContainer" parent="MainMenu/SettingsWindow/Panel/SettingsUI" unique_id=829618313]
+layout_mode = 2
+
+[node name="MusicLabel" type="Label" parent="MainMenu/SettingsWindow/Panel/SettingsUI/Music" unique_id=1017223254]
+layout_mode = 2
+
+[node name="MusicSlider" type="HSlider" parent="MainMenu/SettingsWindow/Panel/SettingsUI/Music" unique_id=8396182]
+layout_mode = 2
+
+[node name="Close" type="Button" parent="MainMenu/SettingsWindow/Panel/SettingsUI" unique_id=292250053]
+layout_mode = 2
+
+[node name="QuitConfirm" type="ConfirmationDialog" parent="MainMenu" unique_id=13075240]
+size = Vector2i(1000, 500)
+dialog_text = "Вы уверены?"

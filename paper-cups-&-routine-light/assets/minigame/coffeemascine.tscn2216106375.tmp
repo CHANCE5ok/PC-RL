@@ -1,0 +1,138 @@
+[gd_scene format=3 uid="uid://cow3k2hsopwnu"]
+
+[ext_resource type="Script" uid="uid://dhohrrwr8elkg" path="res://assets/minigame/canvas_layer.gd" id="1_rwdyq"]
+[ext_resource type="Texture2D" uid="uid://cbn0faso7xq75" path="res://assets/minigame/minigamecoffee.png" id="2_aau3b"]
+[ext_resource type="Texture2D" uid="uid://ydjj1akn1sfn" path="res://assets/minigame/buttons/left.png" id="3_l6gq6"]
+[ext_resource type="Script" uid="uid://dyg8eiq3rpohi" path="res://assets/minigame/button_left.gd" id="3_lqeww"]
+[ext_resource type="Script" uid="uid://dy0tqh1yco152" path="res://assets/minigame/button_center.gd" id="4_l6gq6"]
+[ext_resource type="Script" uid="uid://ffjcsahgo3o7" path="res://assets/minigame/button_right.gd" id="5_x28yd"]
+[ext_resource type="Texture2D" uid="uid://cjvoggjhv5s84" path="res://assets/minigame/buttons/right.png" id="6_x28yd"]
+[ext_resource type="Texture2D" uid="uid://c7w0jm4eld2ub" path="res://assets/minigame/buttons/add.png" id="8_x28yd"]
+[ext_resource type="Texture2D" uid="uid://iyrowb5r45wl" path="res://assets/minigame/buttons/reset.png" id="9_j6sud"]
+[ext_resource type="Script" uid="uid://c18dtml54fjbp" path="res://assets/minigame/cup_slot.gd" id="10_k8i42"]
+[ext_resource type="Script" uid="uid://c0prp7wp1wi3w" path="res://assets/minigame/cup_s.gd" id="11_x3jiv"]
+[ext_resource type="Texture2D" uid="uid://cssdrhj2i0tni" path="res://assets/minigame/cups/small.png" id="12_4tkir"]
+[ext_resource type="Script" uid="uid://bopdei1gi0cjx" path="res://assets/minigame/cup_m.gd" id="13_b3dcw"]
+[ext_resource type="Texture2D" uid="uid://78felaeq5agu" path="res://assets/minigame/cups/Mcup(srednyaya).png" id="14_bkixa"]
+[ext_resource type="Script" uid="uid://cbm53sgb25rec" path="res://assets/minigame/cup_l.gd" id="15_vgmnn"]
+[ext_resource type="Texture2D" uid="uid://cnrjjc4st3jj0" path="res://assets/minigame/cups/largecup.png" id="16_3vjkr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hg4rl"]
+size = Vector2(573, 222.5)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fyylp"]
+radius = 91.0
+height = 220.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_to28c"]
+radius = 111.0
+height = 244.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_h7rnk"]
+radius = 111.0
+height = 336.0
+
+[node name="coffeemascine" type="Node2D" unique_id=192076528]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2112682126]
+script = ExtResource("1_rwdyq")
+
+[node name="Minigamecoffee" type="Sprite2D" parent="CanvasLayer" unique_id=1201468463]
+position = Vector2(1243.5, 712.5)
+scale = Vector2(0.96914065, 0.9826389)
+texture = ExtResource("2_aau3b")
+
+[node name="ButtonLeft" type="Button" parent="CanvasLayer" unique_id=769331418]
+z_index = 2
+z_as_relative = false
+offset_left = 619.0
+offset_top = 590.0
+offset_right = 789.0
+offset_bottom = 733.0
+theme_override_font_sizes/font_size = 60
+icon = ExtResource("3_l6gq6")
+script = ExtResource("3_lqeww")
+
+[node name="ButtonCenter" type="Button" parent="CanvasLayer" unique_id=1541301168]
+offset_left = 843.0
+offset_top = 597.0
+offset_right = 1038.0
+offset_bottom = 733.0
+theme_override_font_sizes/font_size = 25
+text = "вариант1"
+script = ExtResource("4_l6gq6")
+
+[node name="ButtonRight" type="Button" parent="CanvasLayer" unique_id=2101798291]
+offset_left = 1064.0
+offset_top = 575.0
+offset_right = 1245.0
+offset_bottom = 728.0
+theme_override_font_sizes/font_size = 60
+icon = ExtResource("6_x28yd")
+script = ExtResource("5_x28yd")
+
+[node name="ButtonAdd" type="TextureButton" parent="CanvasLayer" unique_id=992138522]
+offset_left = 1478.0
+offset_top = 547.0
+offset_right = 1703.0
+offset_bottom = 640.0
+texture_normal = ExtResource("8_x28yd")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="ButtonReset" type="TextureButton" parent="CanvasLayer" unique_id=288323744]
+offset_left = 1452.0
+offset_top = 658.0
+offset_right = 1748.0
+offset_bottom = 768.0
+texture_normal = ExtResource("9_j6sud")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="CupSlot" type="Area2D" parent="." unique_id=2081897493]
+position = Vector2(1914, -178)
+script = ExtResource("10_k8i42")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CupSlot" unique_id=1820071713]
+position = Vector2(-952, 1126)
+shape = SubResource("RectangleShape2D_hg4rl")
+
+[node name="Cup_S" type="Area2D" parent="." unique_id=58915694]
+position = Vector2(961, -934)
+script = ExtResource("11_x3jiv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cup_S" unique_id=123101992]
+position = Vector2(221, 1352)
+shape = SubResource("CapsuleShape2D_fyylp")
+
+[node name="cup s" type="Sprite2D" parent="Cup_S" unique_id=1330010480]
+position = Vector2(150, 539)
+scale = Vector2(1.3451178, 1.1951567)
+texture = ExtResource("12_4tkir")
+
+[node name="Cup_M" type="Area2D" parent="." unique_id=439669127]
+position = Vector2(748, -357)
+script = ExtResource("13_b3dcw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cup_M" unique_id=811090830]
+position = Vector2(209, 778)
+shape = SubResource("CapsuleShape2D_to28c")
+
+[node name="cup m" type="Sprite2D" parent="Cup_M" unique_id=477171896]
+texture = ExtResource("14_bkixa")
+
+[node name="Cup_L" type="Area2D" parent="." unique_id=2093431082]
+position = Vector2(505, -213)
+script = ExtResource("15_vgmnn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cup_L" unique_id=1146650912]
+position = Vector2(190, 596)
+shape = SubResource("CapsuleShape2D_h7rnk")
+
+[node name="Sprite2D" type="Sprite2D" parent="Cup_L" unique_id=948234063]
+position = Vector2(-148, -159)
+texture = ExtResource("16_3vjkr")
+
+[connection signal="pressed" from="CanvasLayer/ButtonLeft" to="CanvasLayer/ButtonLeft" method="_on_pressed"]
+[connection signal="pressed" from="CanvasLayer/ButtonRight" to="CanvasLayer" method="_on_button_right_pressed"]
+[connection signal="pressed" from="CanvasLayer/ButtonRight" to="CanvasLayer/ButtonRight" method="_on_pressed"]
