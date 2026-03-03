@@ -41,6 +41,9 @@ Grandfather: "Здравствуйте."
 	Grandfather: "А? Аа.. нет, спасибо."
 	Eugenie: "Хорошо, поняла."
 	За работу.
+	[wait_input]
+	do GameState.open_minigame()
+	[end_timeline]
 - Здравствуйте.
 	do GameState.choice_neutral()
 	Eugenie: "Здравствуйте, Ваш заказ?"
@@ -48,6 +51,7 @@ Grandfather: "Здравствуйте."
 	Eugenie: "Ждите, скоро будет."
 	Вот так просто...
 	Тогда за дело.
+	do GameState.open_minigame()
 - Просто ждать, пока он заговорит.
 	do GameState.choice_rude()
 	[wait time="3.0"]
@@ -59,3 +63,4 @@ Grandfather: "Здравствуйте."
 	...
 	[wait time="1.0"]
 	Ладно, не сейчас.
+	do GameState.open_minigame()

@@ -3,6 +3,8 @@ extends Node
 var fatigue: float = 0.0
 var burnout: float = 0.0
 var reputation: float = 0.0
+var coffee_result = ""
+var minigame_active = false
 
 
 const FATIGUE_MAX := 100.0
@@ -70,4 +72,12 @@ func _check_limits():
 	if burnout > BURNOUT_MAX:
 		burnout = BURNOUT_MAX
 		
-		
+func open_minigame():
+	var scene = get_tree().current_scene
+	if scene:
+		var minigame = scene.get_node_or_null("Minigame")
+		if minigame:
+			print("FOUND MINIGAME")
+			minigame.open()
+		else:
+			print("MINIGAME NOT FOUND IN SCENE")
