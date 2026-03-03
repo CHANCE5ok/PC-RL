@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="Paper Cups & Routine Light"
+run/main_scene="uid://c8ytv0f4px6ak"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -90,6 +91,7 @@ text/input_action="dialogic_default_action"
 
 window/size/viewport_width=1280
 window/size/viewport_height=720
+window/stretch/mode="canvas_items"
 
 [editor_plugins]
 

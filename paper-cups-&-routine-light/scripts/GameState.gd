@@ -70,4 +70,10 @@ func _check_limits():
 	if burnout > BURNOUT_MAX:
 		burnout = BURNOUT_MAX
 		
+func open_minigame():
+	var scene = get_tree().current_scene
+	var minigame = scene.get_node_or_null("Minigame")
+	if minigame:
+		minigame.visible = true
+		
 		

@@ -1,0 +1,223 @@
+[gd_scene format=3 uid="uid://c8ytv0f4px6ak"]
+
+[ext_resource type="Script" uid="uid://b7o87hrrgolny" path="res://scenes/minigame/minigame.gd" id="1_dtjnv"]
+[ext_resource type="Script" uid="uid://dmwrtim0qahfc" path="res://scenes/minigame/CupSlot.gd" id="2_7qcun"]
+[ext_resource type="Texture2D" uid="uid://cbn0faso7xq75" path="res://assets/minigame/minigamecoffee.png" id="2_dtjnv"]
+[ext_resource type="Script" uid="uid://b7gvdi345n0o6" path="res://scenes/minigame/IngredientSelector.gd" id="3_ioe0u"]
+[ext_resource type="Script" uid="uid://khbyr402kvi7" path="res://scenes/minigame/AddButton.gd" id="4_umei1"]
+[ext_resource type="Script" uid="uid://durww6nb2j553" path="res://scenes/minigame/ResetButton.gd" id="5_4bvms"]
+[ext_resource type="Script" uid="uid://dojar1ab4a8" path="res://scenes/minigame/CupS.gd" id="7_hwwrx"]
+[ext_resource type="Script" uid="uid://d3jhhw5pc1aq1" path="res://scenes/minigame/CupM.gd" id="8_1thql"]
+[ext_resource type="Script" uid="uid://b3slwncof4ue" path="res://scenes/minigame/CupL.gd" id="9_hws2s"]
+[ext_resource type="Script" uid="uid://gbrvkysmxr1c" path="res://scenes/minigame/TabletDropZone.gd" id="10_dvbpo"]
+[ext_resource type="Script" uid="uid://bttc1we7d516q" path="res://scenes/minigame/ConfirmButton.gd" id="11_d4ll5"]
+[ext_resource type="Script" uid="uid://bas8isyao0utr" path="res://scenes/minigame/CancelButton.gd" id="12_rc0it"]
+
+[node name="Minigame" type="Control" unique_id=637648910]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_dtjnv")
+
+[node name="CoffeeScreen" type="Control" parent="." unique_id=1544794604]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="TextureRect" parent="CoffeeScreen" unique_id=164962521]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("2_dtjnv")
+expand_mode = 1
+
+[node name="CupSlot" type="Control" parent="CoffeeScreen" unique_id=713094123]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("2_7qcun")
+
+[node name="IngredientSelector" type="Control" parent="CoffeeScreen" unique_id=1355781557]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("3_ioe0u")
+
+[node name="LeftArrow" type="Button" parent="CoffeeScreen/IngredientSelector" unique_id=1821616678]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 0
+offset_left = 300.0
+offset_top = 280.0
+offset_right = 420.0
+offset_bottom = 380.0
+text = "Left"
+
+[node name="IngredientLabel" type="Label" parent="CoffeeScreen/IngredientSelector" unique_id=1537474215]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 420.0
+offset_top = 290.0
+offset_right = 540.0
+offset_bottom = -350.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RightArrow" type="Button" parent="CoffeeScreen/IngredientSelector" unique_id=2105886375]
+layout_mode = 0
+offset_left = 540.0
+offset_top = 280.0
+offset_right = 660.0
+offset_bottom = 380.0
+text = "Right"
+
+[node name="AddButton" type="Button" parent="CoffeeScreen" unique_id=87483322]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.99375
+anchor_top = 0.49444443
+anchor_right = 1.0
+anchor_bottom = 0.50555557
+offset_left = -532.0
+offset_top = -86.0
+offset_right = -360.0
+offset_bottom = -34.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "ADD"
+script = ExtResource("4_umei1")
+
+[node name="NextButton" type="Button" parent="CoffeeScreen" unique_id=532826500]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 740.0
+offset_top = -30.0
+offset_right = 920.0
+offset_bottom = 30.0
+grow_vertical = 2
+text = "NEXT"
+
+[node name="ResetButton" type="Button" parent="CoffeeScreen" unique_id=383611267]
+layout_mode = 0
+offset_left = 740.0
+offset_top = 390.0
+offset_right = 920.0
+offset_bottom = 450.0
+text = "RESET"
+script = ExtResource("5_4bvms")
+
+[node name="DraggableItemsContainer" type="Control" parent="CoffeeScreen" unique_id=2125341146]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Cup_S" type="TextureRect" parent="CoffeeScreen/DraggableItemsContainer" unique_id=578055328]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("7_hwwrx")
+item_type = "cup"
+item_value = "S"
+
+[node name="Cup_M" type="TextureRect" parent="CoffeeScreen/DraggableItemsContainer" unique_id=1356037261]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("8_1thql")
+item_type = "cup"
+item_value = "M"
+
+[node name="Cup_L" type="TextureRect" parent="CoffeeScreen/DraggableItemsContainer" unique_id=403453701]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("9_hws2s")
+item_type = "cup"
+item_value = "L"
+
+[node name="RightPanel" type="VBoxContainer" parent="CoffeeScreen" unique_id=1697980607]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PastryScreen" type="Control" parent="." unique_id=281257959]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Background" type="TextureRect" parent="PastryScreen" unique_id=1258502525]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ShowcaseItems" type="Control" parent="PastryScreen" unique_id=1973885751]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Croissant" type="TextureRect" parent="PastryScreen/ShowcaseItems" unique_id=409873998]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Donut" type="TextureRect" parent="PastryScreen/ShowcaseItems" unique_id=1183721432]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Cake" type="TextureRect" parent="PastryScreen/ShowcaseItems" unique_id=2017386055]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TabletPanel" type="Control" parent="." unique_id=2055983528]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TabletBackground" type="TextureRect" parent="TabletPanel" unique_id=1418463135]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="OrderText" type="RichTextLabel" parent="TabletPanel" unique_id=14526994]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TabletDropZone" type="Control" parent="TabletPanel" unique_id=2013204770]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("10_dvbpo")
+
+[node name="ConfirmButton" type="Button" parent="TabletPanel" unique_id=1021377323]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+script = ExtResource("11_d4ll5")
+
+[node name="CancelButton" type="Button" parent="TabletPanel" unique_id=498948360]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+script = ExtResource("12_rc0it")
