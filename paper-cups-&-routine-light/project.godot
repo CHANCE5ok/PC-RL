@@ -31,7 +31,11 @@ directories/dch_directory={
 directories/dtl_directory={
 "day1": "res://scenes/day1.dtl",
 "day1_client1_intro": "res://scenes/day1_client1_intro.dtl",
-"day1_client1_result": "res://scenes/day1_client1_result.dtl"
+"day1_client1_result": "res://scenes/day1_client1_result.dtl",
+"day1_client2": "res://scenes/day1_client2.dtl",
+"day1_client2_result": "res://scenes/day1_client2_result.dtl",
+"day1_client3": "res://scenes/day1_client3.dtl",
+"day1_client3_result": "res://scenes/day1_client3_result.dtl"
 }
 layout/style_directory={
 "": "res://PCRL_Style.tres",

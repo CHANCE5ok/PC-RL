@@ -35,7 +35,7 @@ Vlada: "Ты хоть высыпаешься? Мы открываемся тол
 - Мне так легче.
 	do GameState.choice_neutral()
 	Eugenie (talk/Neutraltalk): "Мне так легче войти в ритм."
-	join Eugenie left
+	join Eugenie (silent/Neutral) left
 	Vlada: "Ранняя пташка?"
 	Eugenie (silent/Softsmile): "Даже не знаю."
 	Eugenie (talk/Neutraltalk): "По утрам, как и по вечерам - чувствую себя стабильно."
