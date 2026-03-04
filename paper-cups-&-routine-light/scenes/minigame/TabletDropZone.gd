@@ -1,15 +1,12 @@
-extends Control
+extends Panel
 
-func _can_drop_data(pos, data):
-	return true
+func _gui_input(event):
+	if event is InputEventMouseButton and not event.pressed:
+		check_drop()
 
-func _drop_data(pos, data):
-	var root = get_parent().get_parent()
-	
-	if data["type"] == "size":
-		root.set_size(data["value"])
-	
-	if data["type"] == "pastry":
-		root.add_pastry(data["value"])
-	
-	root.update_tablet_text()
+func check_drop():
+	for cup in get_tree().get_nodes_in_group("draggable_cup"):
+		if cup.dragging:
+			if get_global_rect().has_point(cup.get_global_mouse_position()):
+				var minigame = get_node("/root/Minigame")
+				minigame.send_cup_to_tablet(cup)

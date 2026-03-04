@@ -4,14 +4,12 @@
 [ext_resource type="Script" uid="uid://dmwrtim0qahfc" path="res://scenes/minigame/CupSlot.gd" id="2_7qcun"]
 [ext_resource type="Texture2D" uid="uid://cbn0faso7xq75" path="res://assets/minigame/minigamecoffee.png" id="2_dtjnv"]
 [ext_resource type="Script" uid="uid://b7gvdi345n0o6" path="res://scenes/minigame/IngredientSelector.gd" id="3_ioe0u"]
-[ext_resource type="Script" uid="uid://khbyr402kvi7" path="res://scenes/minigame/AddButton.gd" id="4_umei1"]
-[ext_resource type="Script" uid="uid://durww6nb2j553" path="res://scenes/minigame/ResetButton.gd" id="5_4bvms"]
-[ext_resource type="Script" uid="uid://dojar1ab4a8" path="res://scenes/minigame/CupS.gd" id="7_hwwrx"]
-[ext_resource type="Script" uid="uid://d3jhhw5pc1aq1" path="res://scenes/minigame/CupM.gd" id="8_1thql"]
-[ext_resource type="Script" uid="uid://b3slwncof4ue" path="res://scenes/minigame/CupL.gd" id="9_hws2s"]
+[ext_resource type="Texture2D" uid="uid://b0g62ihoa7myr" path="res://assets/minigame/UI/small.png" id="9_umei1"]
+[ext_resource type="Texture2D" uid="uid://ct4pa6myk4svn" path="res://assets/minigame/UI/Mcup(srednyaya).png" id="10_4bvms"]
 [ext_resource type="Script" uid="uid://gbrvkysmxr1c" path="res://scenes/minigame/TabletDropZone.gd" id="10_dvbpo"]
-[ext_resource type="Script" uid="uid://bttc1we7d516q" path="res://scenes/minigame/ConfirmButton.gd" id="11_d4ll5"]
-[ext_resource type="Script" uid="uid://bas8isyao0utr" path="res://scenes/minigame/CancelButton.gd" id="12_rc0it"]
+[ext_resource type="Script" uid="uid://du64snq04jhi2" path="res://scenes/minigame/CupDrag.gd" id="10_fqo4m"]
+[ext_resource type="Texture2D" uid="uid://cluv4pol3eff0" path="res://assets/minigame/UI/largecup.png" id="11_fqo4m"]
+[ext_resource type="Script" uid="uid://old3420xj0ks" path="res://scenes/minigame/CupDropZone.gd" id="15_hwwrx"]
 
 [node name="Minigame" type="Control" unique_id=637648910]
 layout_mode = 3
@@ -30,6 +28,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="Background" type="TextureRect" parent="CoffeeScreen" unique_id=164962521]
 layout_mode = 1
@@ -46,12 +45,27 @@ expand_mode = 1
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+mouse_filter = 2
 script = ExtResource("2_7qcun")
+
+[node name="CupImage" type="TextureRect" parent="CoffeeScreen/CupSlot" unique_id=1380426461]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CupText" type="Label" parent="CoffeeScreen/CupSlot" unique_id=1016189235]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="IngredientSelector" type="Control" parent="CoffeeScreen" unique_id=1355781557]
 layout_mode = 1
 anchors_preset = 9
 anchor_bottom = 1.0
+offset_right = 451.0
 grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("3_ioe0u")
@@ -63,6 +77,7 @@ offset_left = 300.0
 offset_top = 280.0
 offset_right = 420.0
 offset_bottom = 380.0
+action_mode = 0
 text = "Left"
 
 [node name="IngredientLabel" type="Label" parent="CoffeeScreen/IngredientSelector" unique_id=1537474215]
@@ -72,7 +87,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 420.0
 offset_top = 290.0
-offset_right = 540.0
+offset_right = 79.0
 offset_bottom = -350.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -99,7 +114,6 @@ offset_bottom = -34.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "ADD"
-script = ExtResource("4_umei1")
 
 [node name="NextButton" type="Button" parent="CoffeeScreen" unique_id=532826500]
 layout_mode = 1
@@ -120,10 +134,19 @@ offset_top = 390.0
 offset_right = 920.0
 offset_bottom = 450.0
 text = "RESET"
-script = ExtResource("5_4bvms")
 
 [node name="DraggableItemsContainer" type="Control" parent="CoffeeScreen" unique_id=2125341146]
 anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Cup_L" type="TextureRect" parent="CoffeeScreen/DraggableItemsContainer" unique_id=403453701]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Cup_M" type="TextureRect" parent="CoffeeScreen/DraggableItemsContainer" unique_id=1356037261]
+layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
@@ -131,33 +154,68 @@ offset_bottom = 40.0
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
-script = ExtResource("7_hwwrx")
-item_type = "cup"
-item_value = "S"
-
-[node name="Cup_M" type="TextureRect" parent="CoffeeScreen/DraggableItemsContainer" unique_id=1356037261]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-script = ExtResource("8_1thql")
-item_type = "cup"
-item_value = "M"
-
-[node name="Cup_L" type="TextureRect" parent="CoffeeScreen/DraggableItemsContainer" unique_id=403453701]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-script = ExtResource("9_hws2s")
-item_type = "cup"
-item_value = "L"
 
 [node name="RightPanel" type="VBoxContainer" parent="CoffeeScreen" unique_id=1697980607]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="CupStackTop" type="Control" parent="CoffeeScreen" unique_id=21757583]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CupInMachine" type="TextureRect" parent="CoffeeScreen" unique_id=263878156]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CupStand" type="Control" parent="CoffeeScreen" unique_id=1164231498]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Cup_S" type="TextureRect" parent="CoffeeScreen/CupStand" unique_id=778230602]
+layout_mode = 0
+offset_left = 527.0
+offset_top = 101.0
+offset_right = 707.0
+offset_bottom = 281.0
+texture = ExtResource("9_umei1")
+expand_mode = 1
+stretch_mode = 5
+script = ExtResource("10_fqo4m")
+
+[node name="Cup_M" type="TextureRect" parent="CoffeeScreen/CupStand" unique_id=701714781]
+layout_mode = 0
+offset_left = 400.0
+offset_top = 105.0
+offset_right = 580.0
+offset_bottom = 285.0
+texture = ExtResource("10_4bvms")
+expand_mode = 1
+stretch_mode = 5
+script = ExtResource("10_fqo4m")
+
+[node name="Cup_L" type="TextureRect" parent="CoffeeScreen/CupStand" unique_id=633280964]
+layout_mode = 0
+offset_left = 269.0
+offset_top = 106.0
+offset_right = 449.0
+offset_bottom = 286.0
+texture = ExtResource("11_fqo4m")
+expand_mode = 1
+stretch_mode = 5
+script = ExtResource("10_fqo4m")
+
+[node name="ActiveCupContainer" type="Control" parent="CoffeeScreen" unique_id=1392774065]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
 [node name="PastryScreen" type="Control" parent="." unique_id=281257959]
 anchors_preset = 0
@@ -181,43 +239,57 @@ offset_bottom = 40.0
 
 [node name="Donut" type="TextureRect" parent="PastryScreen/ShowcaseItems" unique_id=1183721432]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 24.0
+offset_top = 21.0
+offset_right = 64.0
+offset_bottom = 61.0
 
 [node name="Cake" type="TextureRect" parent="PastryScreen/ShowcaseItems" unique_id=2017386055]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 56.0
+offset_top = 43.0
+offset_right = 96.0
+offset_bottom = 83.0
 
 [node name="TabletPanel" type="Control" parent="." unique_id=2055983528]
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="TabletBackground" type="TextureRect" parent="TabletPanel" unique_id=1418463135]
+[node name="OrderPreview" type="Label" parent="TabletPanel" unique_id=1600713877]
 layout_mode = 0
 offset_right = 40.0
-offset_bottom = 40.0
+offset_bottom = 23.0
 
-[node name="OrderText" type="RichTextLabel" parent="TabletPanel" unique_id=14526994]
+[node name="InventorySlot" type="Panel" parent="TabletPanel" unique_id=396686065]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="TabletDropZone" type="Control" parent="TabletPanel" unique_id=2013204770]
-anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("10_dvbpo")
 
-[node name="ConfirmButton" type="Button" parent="TabletPanel" unique_id=1021377323]
+[node name="InventoryText" type="Label" parent="TabletPanel" unique_id=100628837]
 layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
-script = ExtResource("11_d4ll5")
+offset_left = 57.0
+offset_top = 7.0
+offset_right = 97.0
+offset_bottom = 30.0
 
-[node name="CancelButton" type="Button" parent="TabletPanel" unique_id=498948360]
+[node name="ConfirmButton" type="Button" parent="TabletPanel" unique_id=1560917137]
+visible = false
 layout_mode = 0
 offset_right = 8.0
 offset_bottom = 8.0
-script = ExtResource("12_rc0it")
+
+[node name="CancelButton" type="Button" parent="TabletPanel" unique_id=1118638103]
+visible = false
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+
+[node name="DropZone" type="Panel" parent="." unique_id=966047785]
+layout_mode = 0
+offset_left = 404.0
+offset_top = 450.0
+offset_right = 549.0
+offset_bottom = 575.0
+script = ExtResource("15_hwwrx")

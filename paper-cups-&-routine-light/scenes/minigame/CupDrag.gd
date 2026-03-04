@@ -3,9 +3,11 @@ extends TextureRect
 var dragging = false
 var original_position
 var cup_size = "M" # поменяй для каждого стакана
+var locked = false
 
 func _ready():
 	original_position = global_position
+	add_to_group("draggable_cup")
 
 func _gui_input(event):
 	if event is InputEventMouseButton:
@@ -16,7 +18,7 @@ func _gui_input(event):
 				dragging = false
 
 func _process(delta):
-	if dragging:
+	if dragging and not locked:
 		global_position = get_global_mouse_position() - size / 2
 
 func reset_position():
