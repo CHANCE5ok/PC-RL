@@ -258,33 +258,41 @@ offset_bottom = 40.0
 
 [node name="OrderPreview" type="Label" parent="TabletPanel" unique_id=1600713877]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+offset_left = 972.0
+offset_top = 277.0
+offset_right = 1246.0
+offset_bottom = 459.0
 
 [node name="InventorySlot" type="Panel" parent="TabletPanel" unique_id=396686065]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 969.0
+offset_top = 467.0
+offset_right = 1253.0
+offset_bottom = 700.0
 script = ExtResource("10_dvbpo")
 
 [node name="InventoryText" type="Label" parent="TabletPanel" unique_id=100628837]
 layout_mode = 0
-offset_left = 57.0
-offset_top = 7.0
-offset_right = 97.0
-offset_bottom = 30.0
+offset_left = 992.0
+offset_top = 473.0
+offset_right = 1229.0
+offset_bottom = 614.0
 
 [node name="ConfirmButton" type="Button" parent="TabletPanel" unique_id=1560917137]
-visible = false
 layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
+offset_left = 1138.0
+offset_top = 616.0
+offset_right = 1250.0
+offset_bottom = 684.0
+text = "confirm"
 
 [node name="CancelButton" type="Button" parent="TabletPanel" unique_id=1118638103]
-visible = false
 layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
+offset_left = 975.0
+offset_top = 617.0
+offset_right = 1074.0
+offset_bottom = 690.0
+text = "cancel"
 
 [node name="DropZone" type="Panel" parent="." unique_id=966047785]
 layout_mode = 0
