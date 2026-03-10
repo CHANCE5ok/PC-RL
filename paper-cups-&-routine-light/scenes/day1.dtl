@@ -135,3 +135,4 @@ Adrian: "Да, покажи мастер-класс."
 	join Eugenie (silent/Neutral) left
 	Уверенность. Обычное. Безлактозное. Люди.
 	Звучит просто.
+[signal arg="start_minigame"]

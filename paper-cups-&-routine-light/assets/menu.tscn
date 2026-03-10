@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://budr4xlbuseq7" path="res://assets/ui/menu.png" id="1_8u24h"]
 [ext_resource type="Script" uid="uid://d4mvxt2utrfoa" path="res://assets/MainMenu.gd" id="1_cm8wc"]
+[ext_resource type="Script" uid="uid://1o51gga6nsyp" path="res://assets/play_button.gd" id="3_k10co"]
 
 [node name="menu" type="Node2D" unique_id=278033523]
 
@@ -24,6 +25,7 @@ offset_left = 1036.0
 offset_top = 527.0
 offset_right = 1231.0
 offset_bottom = 783.0
+script = ExtResource("3_k10co")
 
 [node name="ContinueButton" type="Button" parent="MainMenu" unique_id=2117817041]
 layout_mode = 0
@@ -48,34 +50,137 @@ offset_bottom = 1299.0
 
 [node name="SettingsWindow" type="Window" parent="MainMenu" unique_id=1716888597]
 oversampling_override = 1.0
-position = Vector2i(700, 200)
+position = Vector2i(0, 36)
 size = Vector2i(1000, 700)
+visible = false
 
-[node name="Panel" type="PanelContainer" parent="MainMenu/SettingsWindow" unique_id=95461046]
+[node name="Panel" type="PanelContainer" parent="MainMenu/SettingsWindow" unique_id=76382237]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="SettingsUI" type="VBoxContainer" parent="MainMenu/SettingsWindow/Panel" unique_id=645022339]
+[node name="Root" type="MarginContainer" parent="MainMenu/SettingsWindow/Panel" unique_id=959914734]
 layout_mode = 2
 
-[node name="Title" type="Label" parent="MainMenu/SettingsWindow/Panel/SettingsUI" unique_id=2052690117]
+[node name="SettingsUI" type="VBoxContainer" parent="MainMenu/SettingsWindow/Panel/Root" unique_id=1875090052]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Title" type="Label" parent="MainMenu/SettingsWindow/Panel/Root/SettingsUI" unique_id=551816267]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Настройки"
+horizontal_alignment = 1
+
+[node name="MasterRow" type="HBoxContainer" parent="MainMenu/SettingsWindow/Panel/Root/SettingsUI" unique_id=232555963]
 layout_mode = 2
 
-[node name="Music" type="HBoxContainer" parent="MainMenu/SettingsWindow/Panel/SettingsUI" unique_id=829618313]
+[node name="MasterLabel" type="Label" parent="MainMenu/SettingsWindow/Panel/Root/SettingsUI/MasterRow" unique_id=723533399]
+custom_minimum_size = Vector2(180, 40)
+layout_mode = 2
+theme_override_font_sizes/font_size = 35
+text = "Общая громкость"
+
+[node name="MasterSlider" type="HSlider" parent="MainMenu/SettingsWindow/Panel/Root/SettingsUI/MasterRow" unique_id=1430963270]
+custom_minimum_size = Vector2(500, 50)
 layout_mode = 2
 
-[node name="MusicLabel" type="Label" parent="MainMenu/SettingsWindow/Panel/SettingsUI/Music" unique_id=1017223254]
+[node name="MusicRow" type="HBoxContainer" parent="MainMenu/SettingsWindow/Panel/Root/SettingsUI" unique_id=410079055]
 layout_mode = 2
 
-[node name="MusicSlider" type="HSlider" parent="MainMenu/SettingsWindow/Panel/SettingsUI/Music" unique_id=8396182]
+[node name="MusicLabel" type="Label" parent="MainMenu/SettingsWindow/Panel/Root/SettingsUI/MusicRow" unique_id=1446933713]
+custom_minimum_size = Vector2(180, 40)
+layout_mode = 2
+theme_override_font_sizes/font_size = 35
+text = "Музыка"
+
+[node name="MusicSlider" type="HSlider" parent="MainMenu/SettingsWindow/Panel/Root/SettingsUI/MusicRow" unique_id=1692002319]
+custom_minimum_size = Vector2(500, 50)
 layout_mode = 2
 
-[node name="Close" type="Button" parent="MainMenu/SettingsWindow/Panel/SettingsUI" unique_id=292250053]
+[node name="SfxRow" type="HBoxContainer" parent="MainMenu/SettingsWindow/Panel/Root/SettingsUI" unique_id=743981808]
 layout_mode = 2
+
+[node name="SfxLabel" type="Label" parent="MainMenu/SettingsWindow/Panel/Root/SettingsUI/SfxRow" unique_id=566737923]
+custom_minimum_size = Vector2(180, 40)
+layout_mode = 2
+theme_override_font_sizes/font_size = 35
+text = "Эффекты"
+
+[node name="SfxSlider" type="HSlider" parent="MainMenu/SettingsWindow/Panel/Root/SettingsUI/SfxRow" unique_id=86224154]
+custom_minimum_size = Vector2(500, 50)
+layout_mode = 2
+
+[node name="FullscreenRow" type="HBoxContainer" parent="MainMenu/SettingsWindow/Panel/Root/SettingsUI" unique_id=1835725061]
+layout_mode = 2
+
+[node name="FullscreenLabel" type="Label" parent="MainMenu/SettingsWindow/Panel/Root/SettingsUI/FullscreenRow" unique_id=145612542]
+custom_minimum_size = Vector2(180, 40)
+layout_mode = 2
+theme_override_font_sizes/font_size = 35
+text = "Полный экран"
+
+[node name="FullscreenCheck" type="CheckBox" parent="MainMenu/SettingsWindow/Panel/Root/SettingsUI/FullscreenRow" unique_id=200934611]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+
+[node name="HintsRow" type="HBoxContainer" parent="MainMenu/SettingsWindow/Panel/Root/SettingsUI" unique_id=1899833982]
+layout_mode = 2
+
+[node name="HintsLabel" type="Label" parent="MainMenu/SettingsWindow/Panel/Root/SettingsUI/HintsRow" unique_id=408787943]
+custom_minimum_size = Vector2(180, 40)
+layout_mode = 2
+theme_override_font_sizes/font_size = 35
+text = "Подсказки"
+
+[node name="HintsCheck" type="CheckBox" parent="MainMenu/SettingsWindow/Panel/Root/SettingsUI/HintsRow" unique_id=783811236]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+
+[node name="TextSpeedRow" type="HBoxContainer" parent="MainMenu/SettingsWindow/Panel/Root/SettingsUI" unique_id=2047804603]
+layout_mode = 2
+
+[node name="TextSpeedLabel" type="Label" parent="MainMenu/SettingsWindow/Panel/Root/SettingsUI/TextSpeedRow" unique_id=579679986]
+custom_minimum_size = Vector2(180, 40)
+layout_mode = 2
+theme_override_font_sizes/font_size = 35
+text = "Скорость текста"
+
+[node name="TextSpeedSlider" type="HSlider" parent="MainMenu/SettingsWindow/Panel/Root/SettingsUI/TextSpeedRow" unique_id=1617406428]
+custom_minimum_size = Vector2(500, 50)
+layout_mode = 2
+
+[node name="ButtonsRow" type="HBoxContainer" parent="MainMenu/SettingsWindow/Panel/Root/SettingsUI" unique_id=2146406659]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 10
+
+[node name="ApplyButton" type="Button" parent="MainMenu/SettingsWindow/Panel/Root/SettingsUI/ButtonsRow" unique_id=1295748658]
+custom_minimum_size = Vector2(200, 75)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Применить"
+
+[node name="ResetButton" type="Button" parent="MainMenu/SettingsWindow/Panel/Root/SettingsUI/ButtonsRow" unique_id=1841721348]
+custom_minimum_size = Vector2(200, 75)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Сбросить"
+
+[node name="CloseButton" type="Button" parent="MainMenu/SettingsWindow/Panel/Root/SettingsUI/ButtonsRow" unique_id=2120979092]
+custom_minimum_size = Vector2(200, 75)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Закрыть"
 
 [node name="QuitConfirm" type="ConfirmationDialog" parent="MainMenu" unique_id=13075240]
-size = Vector2i(1000, 500)
+oversampling_override = 1.0
+initial_position = 2
+size = Vector2i(500, 250)
+ok_button_text = "Да"
 dialog_text = "Вы уверены?"
+cancel_button_text = "Нет"
+
+[connection signal="pressed" from="MainMenu/PlayButton" to="MainMenu/PlayButton" method="_on_pressed"]

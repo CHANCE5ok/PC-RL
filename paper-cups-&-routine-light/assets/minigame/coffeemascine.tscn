@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cow3k2hsopwnu"]
 
 [ext_resource type="Texture2D" uid="uid://scbfeheqgq4k" path="res://assets/minigame/minigamecoffee (2).png" id="1_nmsx6"]
+[ext_resource type="Script" uid="uid://cqvpcfvtwqmk6" path="res://assets/minigame/CoffeeMinigame.gd" id="1_xrcmp"]
 [ext_resource type="Texture2D" uid="uid://ydjj1akn1sfn" path="res://assets/minigame/buttons/left.png" id="3_l6gq6"]
 [ext_resource type="Script" uid="uid://dyg8eiq3rpohi" path="res://assets/minigame/button_left.gd" id="3_lqeww"]
 [ext_resource type="Script" uid="uid://dy0tqh1yco152" path="res://assets/minigame/button_center.gd" id="4_l6gq6"]
@@ -78,6 +79,7 @@ func _on_button_kond_pressed() -> void:
 "
 
 [node name="coffeemascine" type="Node2D" unique_id=192076528]
+script = ExtResource("1_xrcmp")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2112682126]
 layer = -1
@@ -152,7 +154,6 @@ offset_bottom = 329.0
 mouse_filter = 0
 texture = ExtResource("8_njh7t")
 script = ExtResource("9_nmsx6")
-capacity_ml = 200
 
 [node name="Cup_M" type="TextureRect" parent="CanvasLayer/ShelArea" unique_id=1719859914]
 modulate = Color(0, 0, 0, 0)
@@ -164,8 +165,7 @@ offset_bottom = 345.0
 mouse_filter = 0
 texture = ExtResource("10_1j77m")
 script = ExtResource("9_nmsx6")
-cup_size = "M"
-capacity_ml = 300
+cup_size = "medium"
 
 [node name="Cup_L" type="TextureRect" parent="CanvasLayer/ShelArea" unique_id=1525235372]
 modulate = Color(0, 0, 0, 0)
@@ -177,8 +177,7 @@ offset_bottom = 327.0
 mouse_filter = 0
 texture = ExtResource("11_xrcmp")
 script = ExtResource("9_nmsx6")
-cup_size = "L"
-capacity_ml = 400
+cup_size = "large"
 
 [node name="CupSlot" type="Control" parent="CanvasLayer" unique_id=969055515]
 layout_mode = 3
@@ -204,6 +203,67 @@ offset_bottom = 413.0
 theme_override_font_sizes/font_size = 50
 text = "Кондитерская"
 script = ExtResource("14_1j77m")
+
+[node name="OrdersButton" type="Button" parent="CanvasLayer" unique_id=1466777384]
+offset_left = 1497.0
+offset_top = 816.0
+offset_right = 1799.0
+offset_bottom = 1070.0
+
+[node name="OrderWindow" type="Window" parent="CanvasLayer" unique_id=439655638]
+oversampling_override = 1.0
+initial_position = 4
+size = Vector2i(700, 450)
+visible = false
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/OrderWindow" unique_id=2115529228]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/OrderWindow/PanelContainer" unique_id=1704121834]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/OrderWindow/PanelContainer/MarginContainer" unique_id=1958880682]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Title" type="Label" parent="CanvasLayer/OrderWindow/PanelContainer/MarginContainer/VBoxContainer" unique_id=322222152]
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "Проверка заказа"
+
+[node name="CupResultLabel" type="Label" parent="CanvasLayer/OrderWindow/PanelContainer/MarginContainer/VBoxContainer" unique_id=1243360885]
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+
+[node name="DrinkResultLabel" type="Label" parent="CanvasLayer/OrderWindow/PanelContainer/MarginContainer/VBoxContainer" unique_id=68403106]
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+
+[node name="ToppingResultLabel" type="Label" parent="CanvasLayer/OrderWindow/PanelContainer/MarginContainer/VBoxContainer" unique_id=883570033]
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+
+[node name="KondResultLabel" type="Label" parent="CanvasLayer/OrderWindow/PanelContainer/MarginContainer/VBoxContainer" unique_id=642718397]
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+
+[node name="ErrorCountLabel" type="Label" parent="CanvasLayer/OrderWindow/PanelContainer/MarginContainer/VBoxContainer" unique_id=699017632]
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+
+[node name="CloseOrdersButton" type="Button" parent="CanvasLayer/OrderWindow/PanelContainer/MarginContainer/VBoxContainer" unique_id=2091550840]
+custom_minimum_size = Vector2(200, 60)
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "Закрыть"
 
 [connection signal="pressed" from="CanvasLayer/ButtonLeft" to="CanvasLayer/ButtonLeft" method="_on_pressed"]
 [connection signal="pressed" from="CanvasLayer/ButtonRight" to="CanvasLayer" method="_on_button_right_pressed"]
