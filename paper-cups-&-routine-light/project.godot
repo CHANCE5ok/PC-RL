@@ -18,6 +18,11 @@ config/icon="res://icon.svg"
 [autoload]
 
 Dialogic="*uid://ds2q0uclmolvu"
+<<<<<<< Updated upstream
+=======
+GameState="*uid://bvkid34ujgkxv"
+OrderManager="*uid://dji13b8gaah1i"
+>>>>>>> Stashed changes
 
 [dialogic]
 
