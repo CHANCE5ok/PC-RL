@@ -1,0 +1,271 @@
+[gd_scene format=3 uid="uid://cbvqiyuwepvwy"]
+
+[ext_resource type="Script" uid="uid://cqvpcfvtwqmk6" path="res://assets/minigame/CoffeeMinigame.gd" id="1_6kuqm"]
+[ext_resource type="Texture2D" uid="uid://scbfeheqgq4k" path="res://assets/minigame/minigamecoffee (2).png" id="2_fkru8"]
+[ext_resource type="Texture2D" uid="uid://ydjj1akn1sfn" path="res://assets/minigame/buttons/left.png" id="3_rt3yu"]
+[ext_resource type="Script" uid="uid://dyg8eiq3rpohi" path="res://assets/minigame/button_left.gd" id="4_o3tht"]
+[ext_resource type="Script" uid="uid://dy0tqh1yco152" path="res://assets/minigame/button_center.gd" id="5_e2hkp"]
+[ext_resource type="Texture2D" uid="uid://cjvoggjhv5s84" path="res://assets/minigame/buttons/right.png" id="6_w73mw"]
+[ext_resource type="Script" uid="uid://ffjcsahgo3o7" path="res://assets/minigame/button_right.gd" id="7_4girt"]
+[ext_resource type="Texture2D" uid="uid://c7w0jm4eld2ub" path="res://assets/minigame/buttons/add.png" id="8_3uhwe"]
+[ext_resource type="Texture2D" uid="uid://iyrowb5r45wl" path="res://assets/minigame/buttons/reset.png" id="9_iqiq7"]
+[ext_resource type="Texture2D" uid="uid://cssdrhj2i0tni" path="res://assets/minigame/cups/small.png" id="10_ietut"]
+[ext_resource type="Script" uid="uid://bawnwh2ookh2i" path="res://assets/minigame/CupDragUI.gd" id="11_sqmra"]
+[ext_resource type="Texture2D" uid="uid://78felaeq5agu" path="res://assets/minigame/cups/Mcup(srednyaya).png" id="12_uwqhj"]
+[ext_resource type="Texture2D" uid="uid://cnrjjc4st3jj0" path="res://assets/minigame/cups/largecup.png" id="13_nvqpv"]
+[ext_resource type="Script" uid="uid://c7ah7e4o55fj7" path="res://assets/minigame/CupSlotUI.gd" id="14_8wckp"]
+[ext_resource type="Script" uid="uid://87eq4767eq7t" path="res://assets/minigame/button_kond.gd" id="15_a01jb"]
+
+[sub_resource type="GDScript" id="GDScript_x3jiv"]
+script/source = "extends CanvasLayer
+
+@onready var left_btn   = $ButtonLeft
+@onready var center_btn = $ButtonCenter
+@onready var right_btn  = $ButtonRight
+@onready var add_btn    = $ButtonAdd
+@onready var reset_btn  = $ButtonReset
+
+# 🔹 ВСЕ НАБОРЫ
+var sets = [
+	[\"espresso\", \"double expresso\", \"hot chocolate\"],
+	[\"syrop\", \"caramel\", \"vanilla\"],
+	[\"water\", \"milk\", \"ice\"]
+]
+
+var current_set_index = 0
+var index = 0
+var texts = []
+
+func _ready():
+	texts = sets[current_set_index].duplicate()
+
+	left_btn.pressed.connect(_on_left_pressed)
+	right_btn.pressed.connect(_on_right_pressed)
+	add_btn.pressed.connect(_on_add_pressed)
+	reset_btn.pressed.connect(_on_reset_pressed)
+
+	_update_center_text()
+
+# ⬅
+func _on_left_pressed():
+	index = (index - 1 + texts.size()) % texts.size()
+	_update_center_text()
+
+# ➡
+func _on_right_pressed():
+	index = (index + 1) % texts.size()
+	_update_center_text()
+
+# ✅ ADD — переключает набор
+func _on_add_pressed():
+	current_set_index = (current_set_index + 1) % sets.size()
+	texts = sets[current_set_index].duplicate()
+	index = 0
+	_update_center_text()
+
+# ✅ RESET — вернуть первый набор
+func _on_reset_pressed():
+	current_set_index = 0
+	texts = sets[0].duplicate()
+	index = 0
+	_update_center_text()
+
+func _update_center_text():
+	center_btn.text = texts[index]
+
+
+func _on_button_kond_pressed() -> void:
+	pass # Replace with function body.
+"
+
+[node name="coffeemascine" type="Node2D" unique_id=192076528]
+script = ExtResource("1_6kuqm")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2112682126]
+layer = -1
+script = SubResource("GDScript_x3jiv")
+
+[node name="Minigamecoffee" type="Sprite2D" parent="CanvasLayer" unique_id=1201468463]
+position = Vector2(1268, 725.62494)
+scale = Vector2(0.99062496, 1.0078124)
+texture = ExtResource("2_fkru8")
+
+[node name="ButtonLeft" type="Button" parent="CanvasLayer" unique_id=769331418]
+z_as_relative = false
+offset_left = 619.0
+offset_top = 590.0
+offset_right = 789.0
+offset_bottom = 733.0
+theme_override_font_sizes/font_size = 60
+icon = ExtResource("3_rt3yu")
+script = ExtResource("4_o3tht")
+
+[node name="ButtonCenter" type="Button" parent="CanvasLayer" unique_id=1541301168]
+offset_left = 843.0
+offset_top = 597.0
+offset_right = 1038.0
+offset_bottom = 733.0
+theme_override_font_sizes/font_size = 25
+text = "вариант1"
+script = ExtResource("5_e2hkp")
+
+[node name="ButtonRight" type="Button" parent="CanvasLayer" unique_id=2101798291]
+offset_left = 1064.0
+offset_top = 575.0
+offset_right = 1245.0
+offset_bottom = 728.0
+theme_override_font_sizes/font_size = 60
+icon = ExtResource("6_w73mw")
+script = ExtResource("7_4girt")
+
+[node name="ButtonAdd" type="TextureButton" parent="CanvasLayer" unique_id=992138522]
+offset_left = 1478.0
+offset_top = 563.0
+offset_right = 1738.0
+offset_bottom = 640.0
+texture_normal = ExtResource("8_3uhwe")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="ButtonReset" type="TextureButton" parent="CanvasLayer" unique_id=288323744]
+offset_left = 1452.0
+offset_top = 658.0
+offset_right = 1748.0
+offset_bottom = 768.0
+texture_normal = ExtResource("9_iqiq7")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="ShelArea" type="Control" parent="CanvasLayer" unique_id=1490630949]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 568.0
+offset_top = 235.0
+offset_right = 1258.0
+offset_bottom = 520.0
+
+[node name="Cup_S" type="TextureRect" parent="CanvasLayer/ShelArea" unique_id=1361622456]
+modulate = Color(0, 0, 0, 0)
+layout_mode = 0
+offset_left = 487.0
+offset_top = -22.0
+offset_right = 784.0
+offset_bottom = 329.0
+mouse_filter = 0
+texture = ExtResource("10_ietut")
+script = ExtResource("11_sqmra")
+
+[node name="Cup_M" type="TextureRect" parent="CanvasLayer/ShelArea" unique_id=1719859914]
+modulate = Color(0, 0, 0, 0)
+layout_mode = 0
+offset_left = 232.0
+offset_top = -6.0
+offset_right = 529.0
+offset_bottom = 345.0
+mouse_filter = 0
+texture = ExtResource("12_uwqhj")
+script = ExtResource("11_sqmra")
+cup_size = "medium"
+
+[node name="Cup_L" type="TextureRect" parent="CanvasLayer/ShelArea" unique_id=1525235372]
+modulate = Color(0, 0, 0, 0)
+layout_mode = 0
+offset_left = -25.0
+offset_top = -24.0
+offset_right = 272.0
+offset_bottom = 327.0
+mouse_filter = 0
+texture = ExtResource("13_nvqpv")
+script = ExtResource("11_sqmra")
+cup_size = "large"
+
+[node name="CupSlot" type="Control" parent="CanvasLayer" unique_id=969055515]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 596.0
+offset_top = 788.0
+offset_right = 1302.0
+offset_bottom = 1129.0
+script = ExtResource("14_8wckp")
+
+[node name="CupPreview" type="TextureRect" parent="CanvasLayer/CupSlot" unique_id=694376027]
+layout_mode = 0
+offset_left = 198.0
+offset_top = 73.0
+offset_right = 447.0
+offset_bottom = 361.0
+
+[node name="ButtonKond" type="Button" parent="CanvasLayer" unique_id=274733144]
+offset_left = 1843.0
+offset_top = 235.0
+offset_right = 2214.0
+offset_bottom = 413.0
+theme_override_font_sizes/font_size = 50
+text = "Кондитерская"
+script = ExtResource("15_a01jb")
+
+[node name="OrdersButton" type="Button" parent="CanvasLayer" unique_id=1466777384]
+offset_left = 1497.0
+offset_top = 816.0
+offset_right = 1799.0
+offset_bottom = 1070.0
+
+[node name="OrderWindow" type="Window" parent="CanvasLayer" unique_id=439655638]
+oversampling_override = 1.0
+initial_position = 4
+size = Vector2i(700, 450)
+visible = false
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/OrderWindow" unique_id=2115529228]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/OrderWindow/PanelContainer" unique_id=1704121834]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/OrderWindow/PanelContainer/MarginContainer" unique_id=1958880682]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Title" type="Label" parent="CanvasLayer/OrderWindow/PanelContainer/MarginContainer/VBoxContainer" unique_id=322222152]
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "Проверка заказа"
+
+[node name="CupResultLabel" type="Label" parent="CanvasLayer/OrderWindow/PanelContainer/MarginContainer/VBoxContainer" unique_id=1243360885]
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+
+[node name="DrinkResultLabel" type="Label" parent="CanvasLayer/OrderWindow/PanelContainer/MarginContainer/VBoxContainer" unique_id=68403106]
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+
+[node name="ToppingResultLabel" type="Label" parent="CanvasLayer/OrderWindow/PanelContainer/MarginContainer/VBoxContainer" unique_id=883570033]
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+
+[node name="KondResultLabel" type="Label" parent="CanvasLayer/OrderWindow/PanelContainer/MarginContainer/VBoxContainer" unique_id=642718397]
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+
+[node name="ErrorCountLabel" type="Label" parent="CanvasLayer/OrderWindow/PanelContainer/MarginContainer/VBoxContainer" unique_id=699017632]
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+
+[node name="CloseOrdersButton" type="Button" parent="CanvasLayer/OrderWindow/PanelContainer/MarginContainer/VBoxContainer" unique_id=2091550840]
+custom_minimum_size = Vector2(200, 60)
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "Закрыть"
+
+[connection signal="pressed" from="CanvasLayer/ButtonLeft" to="CanvasLayer/ButtonLeft" method="_on_pressed"]
+[connection signal="pressed" from="CanvasLayer/ButtonRight" to="CanvasLayer" method="_on_button_right_pressed"]
+[connection signal="pressed" from="CanvasLayer/ButtonRight" to="CanvasLayer/ButtonRight" method="_on_pressed"]
+[connection signal="pressed" from="CanvasLayer/ButtonKond" to="CanvasLayer/ButtonKond" method="_on_pressed"]
