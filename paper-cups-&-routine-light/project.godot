@@ -91,9 +91,6 @@ text/input_action="dialogic_default_action"
 
 window/size/viewport_width=1280
 window/size/viewport_height=720
-
-[display]
-
 window/stretch/mode="canvas_items"
 window/stretch/scale=0.5
 
