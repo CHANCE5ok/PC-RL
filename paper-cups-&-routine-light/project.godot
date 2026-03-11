@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 Dialogic="*uid://ds2q0uclmolvu"
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 =======
 GameState="*uid://bvkid34ujgkxv"
@@ -26,6 +27,8 @@ OrderManager="*uid://dji13b8gaah1i"
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> parent of 3d3dee9 (.)
 
 [dialogic]
 
