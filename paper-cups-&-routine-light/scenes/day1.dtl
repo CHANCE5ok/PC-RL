@@ -1,0 +1,138 @@
+audio music "res://audio/Station - Quiet.mp3" [fade="6.0" volume="-2.0" loop="true"]
+[wait time="3.0" skippable="true"]
+Первый день всегда странный.
+Как будто ты работаешь здесь очень давно, но просто являешься чужим.
+Я не знаю, чего мне ждать
+...Или бояться.
+Странно, что я уже знаю, где стоит каждая чашка
+Где будет скрипеть пол.
+Где будет очередь.
+Наверное, ничего особенного не произойдет.
+Просто день.
+Просто клиенты.
+Просто кофе.
+Мне даже не нужно открывать дверь, потому что-
+[background arg="res://assets/backgrounds/bg.png" fade="0.0"]
+join Vlada center [animation="Fade In Up" length="0.6"]
+Vlada: "О. Ты уже здесь?"
+update Vlada right [length="1.5"]
+join Eugenie (silent/Neutral) left
+Eugenie (silent/Tiredsoft): "А?.."
+Vlada: "Ты опять пришла раньше всех."
+Eugenie (talk/Tiredsofttalk): "Да, доброе утро."
+join Eugenie (silent/Tiredsoft) left
+Vlada: "Ты хоть высыпаешься? Мы открываемся только через полчаса"
+- Кофеин - лучший друг баристы!
+	do GameState.choice_positive()
+	Eugenie (silent/Zhenya): "Ну, кофеин - лучший друг баристы как никак!"
+	Vlada: "Прям как мой кореш."
+	Vlada: "Дает знать о себе позже."
+	join Eugenie (silent/Tiredsoft) left
+	Eugenie (silent/Neutral): "То есть.."
+	Eugenie (talk/Neutraltalk): "...Прямо в час пик?"
+	Vlada: "Нет. Когда я просто хочу выспаться."
+	join Eugenie (silent/Tiredsoft) left
+- Мне так легче.
+	do GameState.choice_neutral()
+	Eugenie (talk/Neutraltalk): "Мне так легче войти в ритм."
+	join Eugenie (silent/Neutral) left
+	Vlada: "Ранняя пташка?"
+	Eugenie (silent/Softsmile): "Даже не знаю."
+	Eugenie (talk/Neutraltalk): "По утрам, как и по вечерам - чувствую себя стабильно."
+	join Eugenie (silent/Neutral) left
+	Vlada: "Всмысле стабильно? Устало? или.." (вздыхает)
+	Vlada: "...Энергично?.."
+	Eugenie (talk/Neutraltalk): "Когда как. Может быть устало, а может энергично."
+	join Eugenie (silent/Neutral) left
+	Vlada: "Это ты называешь стабильностью?"
+	Vlada: "Я что утром, что вечером чувствую себя одинаково усталой."
+	Eugenie (silent/Softsmile): "Отныне можешь считать себя КМС по стабильной усталости."
+	Vlada: "..."
+	Vlada: "Кошмар."
+- Не уверена, что высыпаюсь.
+	do GameState.choice_honest()
+	Eugenie (talk/Tiredsofttalk): "Честно, не уверена что вообще высыпаюсь."
+	join Eugenie (silent/Tiredsoft) left
+	Vlada: "Так и знала."
+	Eugenie (silent/Tiredsoft): "..."
+	Vlada: "..."
+	Vlada: "Бывает, теперь это официально твоя профессиональная привычка."
+	Eugenie (talk/Tiredsofttalk): "Есть немного.."
+	Eugenie (silent/Softsmile): "Один Американо - и вперед."
+	Vlada: "Или Робуста."
+	join Eugenie (silent/Huh) left
+	Робуста?..
+	Причем здесь капуста.
+	Eugenie (talk/Tiredsofttalk): "Чего?.."
+	Vlada: "Забей."
+join Adrian rightmost [animation="Fade In Up" length="1.0"]
+update Vlada center [animation="Tada" length="1.5"]
+join Eugenie (silent/Neutral) left
+Adrian: "Доброго утра, ребятки!"
+Vlada: "Адриан."
+Vlada: "Ты мог бы предупреждать."
+Vlada: "И когда ты так незаметно прошмыгнул мимо нас и успел так быстро переодеться?"
+Eugenie (talk/Neutraltalk): "Ну вообще-то он зашел с другой стороны... Ты разве не заметила?"
+join Eugenie (silent/Neutral) left
+Vlada: "Адриан, ты серьезно?"
+Adrian: "Ну да."
+Vlada: "..."
+Vlada: "Доброе утро."
+Adrian: "Доброе, кофемашина уже разогрелась!"
+Vlada: "Хорошая работа, даже если мы только начали."
+Разговор не имел в себе ничего особенного, но слушать хотелось все больше.
+Помимо этого - мне казалось, пора возвращаться к работе.
+Eugenie (talk/Neutraltalk): "Ладно. Нам скоро открываться."
+join Eugenie (silent/Neutral) left
+Adrian: "Как скоро? Который час??"
+Vlada: "Ты серьезно?"
+Vlada: "..."
+Vlada: "Десять минут."
+Адриан округлил свой взор четким, но мелким удивлением.
+Adrian: "Десять? Да это же целая вечность!"
+Vlada: "Для тебя - да."
+И вот с этим мне предстоит работать весь день.
+Vlada: "Ах да, Жень."
+Eugenie (silent/Huh): "Да?"
+Vlada: "Раз ты пришла раньше - честь первой смены за тобой."
+Adrian: "Да, покажи мастер-класс."
+- Конечно.
+	do GameState.choice_positive()
+	Eugenie (silent/Softsmile): "Конечно, смотрите внимательно."
+	Adrian: "Хороший настрой!"
+	join Eugenie (silent/Tiredsoft) left
+	Vlada: "Ага, до первого авторского заказа как минимум."
+- Без давления.
+	do GameState.choice_neutral()
+	Eugenie (talk/Neutraltalk): "Без давления, прошу."
+	join Eugenie (silent/Neutral) left
+	Adrian: "Ну ладно."
+	Vlada: "Лады."
+	Adrian: "..."
+	Vlada: "..."
+	Eugenie: "..."
+	Vlada: "Пошлите уже."
+- Можно без экзамена?
+	do GameState.choice_rude()
+	Eugenie (silent/Angry): "Ребят, вы чего? Можно без экзамена?"
+	Vlada: "Да это вроде и не экзамен, просто утро."
+	join Eugenie (silent/Neutral) left
+	Adrian: "Но ведь экзамены разве не утром начинаются?"
+	Vlada: "Да, утром."
+	Adrian: "Может и у нас они есть?"
+	Vlada: "Есть, и будут всегда."
+	Eugenie (talk/Neutraltalk): "Например?..."
+	join Eugenie (silent/Neutral) left
+	Vlada: "Когда приходят люди, которые говорят «мне как вчера»."
+	Eugenie (silent/Huh): "А в чем подвох?"
+	join Eugenie (silent/Neutral) left
+	Vlada: "в том, что вчера у тебя был выходной."
+	join Eugenie (silent/Tiredsoft) left
+	Vlada: “Так что если кто-то скажет «как обычно» - просто кивни уверенно. Половина успеха в уверенности.”
+	Adrian: "А вторая половина?"
+	Vlada: "Не перепутать обычное молоко с безлактозным."
+	Adrian: "..."
+	join Eugenie (silent/Neutral) left
+	Уверенность. Обычное. Безлактозное. Люди.
+	Звучит просто.
+[signal arg="start_minigame"]

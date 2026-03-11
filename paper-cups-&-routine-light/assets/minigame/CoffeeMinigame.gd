@@ -15,8 +15,9 @@ extends Node2D
 @onready var topping_result_label = $CanvasLayer/OrderWindow/PanelContainer/MarginContainer/VBoxContainer/ToppingResultLabel
 @onready var extra_result_label = $CanvasLayer/OrderWindow/PanelContainer/MarginContainer/VBoxContainer/KondResultLabel
 @onready var error_count_label = $CanvasLayer/OrderWindow/PanelContainer/MarginContainer/VBoxContainer/ErrorCountLabel
-@onready var client_name_label = $CanvasLayer/OrderWindow/PanelContainer/MarginContainer/VBoxContainer/ClientNameLabel
+@onready var title_label = $CanvasLayer/OrderWindow/PanelContainer/MarginContainer/VBoxContainer/Title
 
+# 3 набора для этой сцены:
 # 0 = напиток
 # 1 = допинг
 # 2 = добавка
@@ -28,6 +29,22 @@ var sets = [
 
 var current_set_index := 0
 var index := 0
+
+# Заказ клиента
+var current_order = {
+	"cup_size": "large",
+	"drink": "espresso",
+	"doping": "caramel",
+	"extra": "milk"
+}
+
+# Что выбрал игрок
+var player_result = {
+	"cup_size": "",
+	"drink": "",
+	"doping": "",
+	"extra": ""
+}
 
 func _ready():
 	orders_window.hide()
@@ -66,10 +83,10 @@ func _on_button_reset_pressed():
 	current_set_index = 0
 	index = 0
 
-	OrderManager.set_player_value("cup_size", "")
-	OrderManager.set_player_value("drink", "")
-	OrderManager.set_player_value("doping", "")
-	OrderManager.set_player_value("extra", "")
+	player_result["drink"] = ""
+	player_result["doping"] = ""
+	player_result["extra"] = ""
+	player_result["cup_size"] = ""
 
 	_update_center_text()
 
@@ -84,17 +101,18 @@ func save_current_selection():
 	var current_value = sets[current_set_index][index]
 
 	if current_set_index == 0:
-		OrderManager.set_player_value("drink", current_value)
+		player_result["drink"] = current_value
 	elif current_set_index == 1:
-		OrderManager.set_player_value("doping", current_value)
+		player_result["doping"] = current_value
 	elif current_set_index == 2:
-		OrderManager.set_player_value("extra", current_value)
+		player_result["extra"] = current_value
 
 
 # ---------- СТАКАН ----------
+# ЭТУ ФУНКЦИЮ ДОЛЖНЫ ВЫЗЫВАТЬ ТВОИ СТАКАНЫ ПРИ УСТАНОВКЕ В CupSlot
 
 func set_cup_size(size: String):
-	OrderManager.set_player_value("cup_size", size)
+	player_result["cup_size"] = size
 
 
 # ---------- ОКНО ЗАКАЗОВ ----------
@@ -112,12 +130,8 @@ func check_order() -> Dictionary:
 	var result = {}
 	var errors = 0
 
-	var current_order = OrderManager.get_current_order()
-	var keys_to_check = ["cup_size", "drink", "doping", "extra"]
-
-	for key in keys_to_check:
-		var player_value = OrderManager.get_player_value(key)
-		var is_correct = player_value == current_order[key]
+	for key in current_order.keys():
+		var is_correct = player_result[key] == current_order[key]
 		result[key] = is_correct
 
 		if not is_correct:
@@ -128,9 +142,7 @@ func check_order() -> Dictionary:
 
 
 func update_orders_window():
-	var current_order = OrderManager.get_current_order()
 	var check = check_order()
-
 
 	cup_result_label.text = "Стакан: " + translate_value(current_order["cup_size"]) + " " + get_status_icon(check["cup_size"])
 	drink_result_label.text = "Напиток: " + translate_value(current_order["drink"]) + " " + get_status_icon(check["drink"])
@@ -138,7 +150,6 @@ func update_orders_window():
 	extra_result_label.text = "Добавка: " + translate_value(current_order["extra"]) + " " + get_status_icon(check["extra"])
 
 	error_count_label.text = "Количество ошибок: " + str(check["errors"])
-
 
 func get_status_icon(is_correct: bool) -> String:
 	if is_correct:
